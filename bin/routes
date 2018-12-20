@@ -1,0 +1,23 @@
+# main landing Page
+GET     /                           controllers.Twitter.index
+
+# Authentication to Twitter API
+GET     /twitter/homeTimeline controllers.Twitter.homeTimeline()
+GET     /twitter/auth         controllers.Twitter.auth()
+
+
+GET     /h         controllers.TwitterController.sandbox
+GET     /h/ws         controllers.TwitterController.ws
+
+# Tweets
+
+GET     /searchTweets                    controllers.Twitter.tweets()
+
+POST    /searchTweets          controllers.Twitter.searchTweets()
+
+GET /get_tweets/:hashtag controllers.Twitter.getTweets(hashtag)
+
+GET /get_usertimeline/:hashtag controllers.Twitter.userTimeline(hashtag)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

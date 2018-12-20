@@ -1,0 +1,11 @@
+@*
+ * This template is will be loaded as a  Landing page. This template
+ * handles the rendering of the Authentication page to twitter to Twitter API. 
+ *@
+@main("Welcome to TwitterAnalytics") {
+	 <header class="w3-container w3-cyan w3-center" style="padding:128px 16px">
+            <h1 class="w3-margin w3-jumbo">TweetAnalytics</h1>
+            <p class="w3-xlarge">Please login with your Twitter account to continue... </p>
+            <a href="@routes.Twitter.auth()" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Login with Twitter</a>
+        </header>
+}

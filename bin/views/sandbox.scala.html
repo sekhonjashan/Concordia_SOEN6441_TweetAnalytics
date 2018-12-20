@@ -1,0 +1,117 @@
+@(request: play.mvc.Http.Request)
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Assignment 2</title>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+		<link rel="stylesheet" href="http://d33wubrfki0l68.cloudfront.net/bundles/5cc325afc6b51538ad852ca1e549410cd2730ab9.css">
+    <script type='text/javascript' src='@routes.Assets.at("javascript/index.js")'></script>  
+	<style>
+	body {
+	    background-color: #8e44ad;
+	    font-family: Lato,sans-serif;
+	    height: 2000px;
+	    color: #fff;
+	}
+		.w3-bar .w3-bar-item {
+			padding: 8px 16px;
+			float: left;
+			width: auto;
+			border: none;
+			display: block;
+			outline: 0
+		}
+		.w3-rest {
+			overflow: hidden;
+			float:left;
+			width:85%;
+		}
+		.w3-circle {
+		border-radius: 50%;
+	}
+	img {
+		vertical-align: middle
+	}
+	.w3-large {
+    font-size: 18px!important;
+}
+	._userprofile{
+							text-decoration:none;
+							font-size: 16px;
+							font-weight : bold;
+							margin-right: 10px;
+						}
+	._tweetDesc{
+							margin:0;
+							font-size : 13px;
+						    line-height: 20px;
+						    font-weight: normal;
+						     white-space: pre-wrap;
+						     word-wrap: break-word;
+						}
+				li:before, li:after {
+						content: "";
+						display: table;
+						clear: both;
+					}
+					._imgcon{
+						float:left;
+						width:15%;
+					}
+					.count{
+						display:inline-block;
+						margin-top:-10px;
+						  position: absolute;
+							right: 19px;
+						 top: 10px
+					}
+					.tweet-con{
+						max-height: 300px;
+						overflow-y:scroll;
+						margin:0;
+					}
+					.search-info{
+						background-color:#fff;
+						color:#000;
+					}
+					.reminder-container{
+						width: 850px !important;
+					}
+					input[type=text] {
+						width: 780px;
+    					height: 45px;
+					}
+					input[type=submit] {
+						    height: 45px;
+						    width: 69px;
+   				 }
+   				 .reminders{
+   				 	max-width: 850px;
+   				 }
+	</style>
+</head>
+<body data-ws-url="@routes.TwitterController.ws.webSocketURL(request)">
+<div class="wrapper">
+  <header>
+      <h1>See what's happening right now!</h1>
+  </header>
+  <div class="reminder-container">
+    
+    <form id="twitterSearchform" class="input-form">
+      <input type="text" id="btnSearchKeyword" id="text" placeholder="Symbol..">
+      <input type="submit" class="search-submit" value="Search">
+    </form>
+	<div id="searchResults"> </div>
+  </div>
+  
+    
+</div>
+    
+</body>
+ <script>
+$( document ).ready(function() {
+	callws(); 
+});
+</script>
+</html>

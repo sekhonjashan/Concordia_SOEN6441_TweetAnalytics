@@ -1,0 +1,48 @@
+@(tweets: List[Map[String, com.fasterxml.jackson.databind.JsonNode]], form: Form[Tweet] , keywords : List[String] )
+@main("Search Tweets") {   
+	<!-- Container -->
+      <div class="w3-row w3-padding-32 contain" style="padding:32px;height: 100%;">
+	  <div class="w3-col w3-container m3 l3"></div>
+	  <div class="w3-col w3-container m8 l8">  
+	    <div class="w3-row-padding">
+		  <div class="w3-half">
+			<h4><b>See what's happening right now<b/></h4>
+			@helper.form(action = routes.Twitter.searchTweets()) {
+				  @helper.inputText(form("name"), 'placeholder -> "Search Twitter", 'class -> "w3-input w3-border w3-round-xxlarge search-icon")
+				}
+		  </div>
+		</div>
+		<div class="w3-row-padding" style="margin:8px 0 0 0;color:#000;">
+		@if(tweets.size == 0) {
+			<h3>Not yet searched Or No Tweets are found on given search!!</h3>
+		}else{
+
+	<div class="w3-container">
+	<div class="w3-container">
+	  <h2>Tweet's List</h2>
+	     @for(i <- 0 until tweets.size){
+	  <p>top 10 tweet's from search '@keywords', found <span>@tweets(i).size()</span> results</p> 
+		   <ul class="w3-ul w3-card-4 _tweets">
+		
+		  @tweets(i).map { tw =>
+		    <li class="w3-bar">
+		      <img src="@tw._2.findValue("profile_image_url").asText()" class="w3-bar-item w3-circle" style="width:85px">
+		      <div class="w3-rest">
+			      <span class="w3-large"><a class="_userprofile" target="_blank" href="@routes.Twitter.userTimeline(tw._2.findValue("screen_name").asText())">@tw._2.findValue("name").asText()</a>
+			       <span class="w3-small _screenName">@@@tw._2.findValue("screen_name").asText()</span>
+			      </span>
+			        <p class="_tweetDesc">@tw._1</p>
+		      </div>
+		    </li>
+		    }
+		  </ul>
+		  
+		    }
+		  </div>
+	  </div>
+	  }
+	</div>
+		</div>
+	  </div>
+	  </div>
+     }

@@ -1,0 +1,39 @@
+@*
+ * This template view shows the Twitter user profile information  navigate from the `tweets` template. 
+ *This template handles the rendering of the page recent 10 tweets of the user. It takes
+ * three arguments,  Object contains the user info
+ *@
+@(userinfo: Map[String, String] , userinfo1: Map[String, String] , userinfo2: Map[String, String])
+@main("User profile Information") {
+<div class="w3-container">
+	<div class="w3-container">
+	<div class="w3-row w3-margin-top">
+		<div class="w3-col m4 l3">
+		<div class="w3-card-4 test" style="width:92%;max-width:300px;">
+		@userinfo.map { tw =>
+		  <img src="@tw._1" alt="Avatar" style="width:100%;opacity:0.85">
+		  <div class="w3-container">
+		   <h4><b>@tw._2</b></h4>
+	}   
+	<ul>
+	@userinfo1.map { tw =>
+	  <p><strong>Location :</strong><i>"@tw._1"</i></p>
+	  <p><strong>Description :</strong><i>"@tw._2"</i></p>
+	}
+	</ul>
+		  </div>
+		</div>
+		<br>
+		</div>
+		<div class="w3-col m8 l9">
+		<ul class="w3-ul w3-hoverable _tweets">
+		 <li class="w3-blue"><b>last 10 Tweets from User</b></li>
+		@userinfo2.map { tw =>
+			<li><p>@tw._2</p><span class="w3-tiny cdate_disp">created at : @tw._1</span>
+			</li>
+		}
+		</ul>
+		</div>
+</div></div>
+</div>
+}
