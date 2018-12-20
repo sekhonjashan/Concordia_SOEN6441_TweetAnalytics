@@ -1,0 +1,99 @@
+@*
+ * This template is called from the `index` template. This template
+ * handles the rendering of the page header and body tags. It takes
+ * two arguments, a `String` for the title of the page and an `Html`
+ * object to insert into the body of the page.
+ *@
+@(title: String)(content: Html)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>@title</title>
+	        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	   	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+	     <style>
+			body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+			.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+			.fa-anchor,.fa-coffee {font-size:200px}
+				body{
+					    background: #e6ecf0;
+				}
+                        .button {
+                            padding: 15px 25px;
+                            font-size: 24px;
+                            text-align: center;
+                            cursor: pointer;
+                            outline: none;
+                            color: #fff;
+                            background-color: #4CAF50;
+                            border: none;
+                            border-radius: 15px;
+                            box-shadow: 0 9px #999;
+                        }
+
+                        .button:hover {background-color: #3e8e41}
+
+                        .button:active {
+                            background-color: #3e8e41;
+                            box-shadow: 0 5px #666;
+                            transform: translateY(4px);
+                        }
+						.w3-60{
+							width:70%;
+						}
+						.db{
+							display:block;
+						}
+						._userprofile{
+							text-decoration:none;
+							font-size: 16px;
+						}
+						._userprofile:hover{
+							color:#2196F3!important;
+							text-decoration:underline;
+						}
+						.tweets{
+							font-size:16px;
+							color:#2196F3!important;
+						}
+						.tweet-desc{
+							margin:0px;
+						}
+						._tweetDesc{
+							margin:0;
+							font-size : 13px;
+						    line-height: 20px;
+						    font-weight: normal;
+						     white-space: pre-wrap;
+						     word-wrap: break-word;
+						}
+						.cdate_disp{
+							float:right;
+							position: relative;
+   							top: -7px;
+						}
+						._screenName{
+							margin-left:5px;
+							font-weight:normal;
+							font-size: 14px;
+    						color: #657786;
+						}
+						._tweets{
+							background-color:#fff;
+						}
+						label[for="name"] { 
+					display:none;
+				 }
+				 dd{
+				 	margin:0;
+				 }
+              </style>
+    </head>
+    <body>
+        @* And here's where we render the `Html` object containing
+         * the page content. *@
+        @content
+    </body>
+</html>
+
